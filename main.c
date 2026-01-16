@@ -43,7 +43,6 @@ void	populate_grid(Data *d)
 
 	while (read(0, &cmd, 1) > 0)	
 	{
-		if (isWriting) d->grid[y][x] = 'O';
 		switch (cmd)
 		{
 			case up: if (y > 0) y--; break;
@@ -53,6 +52,7 @@ void	populate_grid(Data *d)
 			case toggle: isWriting = !isWriting; break;
 			default: break;
 		}
+		if (isWriting) d->grid[y][x] = 'O';
 	}
 }
 
